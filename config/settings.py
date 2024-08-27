@@ -37,6 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Required for django-allauth
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # Providers (e.g., Google, Facebook)
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+
+    # Your app
+    'accounts',
 ]
 
 MIDDLEWARE = [

@@ -10,6 +10,7 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.12"
 django = "^5.1"
+django-allauth = "^64.1.0"
 
 
 [build-system]
