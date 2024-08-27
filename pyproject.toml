@@ -11,6 +11,12 @@ package-mode = false
 python = "^3.12"
 django = "^5.1"
 django-allauth = "^64.1.0"
+requests = "^2.32.3"
+pyjwt = "^2.9.0"
+python3-saml = "^1.16.0"
+python-openid = "^2.2.5"
+requests-oauthlib = "^2.0.0"
+cryptography = "^43.0.0"
 
 
 [build-system]
