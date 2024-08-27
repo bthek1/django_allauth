@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     # Providers (e.g., Google, Facebook)
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+    
+    # Other installed apps
+    'crispy_forms',
+    'crispy_bootstrap5',
 
     # Your app
     'accounts',
@@ -70,7 +74,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,3 +153,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development
+
+
+# Set the Crispy Forms template pack to Bootstrap 5
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
