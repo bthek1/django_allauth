@@ -41,11 +41,11 @@ INSTALLED_APPS = [
 
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
 
     # Providers (e.g., Google, Facebook)
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
     
     # Other installed apps
     'crispy_forms',
@@ -144,18 +144,34 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# Set the Crispy Forms template pack to Bootstrap 5
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+SITE_ID = 1
+
+# Authentication backends
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development
+# Optional: Email configuration for allauth
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-# Set the Crispy Forms template pack to Bootstrap 5
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+# Custom allauth forms
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+# ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
